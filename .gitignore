@@ -16,6 +16,7 @@
 
 # misc
 /frontend/.DS_Store
+/frontend/.env
 /frontend/.env.local
 /frontend/.env.development.local
 /frontend/.env.test.local
@@ -43,6 +44,7 @@
 # misc
 /backend/.DS_Store
 /backend/.env.development.local
+/backend/.env
 /backend/.env.local
 /backend/.env.test.local
 /backend/.env.production.local
