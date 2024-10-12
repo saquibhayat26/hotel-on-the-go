@@ -24,7 +24,9 @@
     "baseUrl": "."
   },
   "ts-node": {
-    "esm": true
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "transpileOnly": true
   },
   "exclude": ["node_modules", "dist"],
   "include": ["./src/**/*.ts"]
