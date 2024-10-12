@@ -1,0 +1,33 @@
+const BG_COLOR = "#f5f5f5";
+const TEXT_COLOR = "#333";
+const PRIMARY_COLOR = "#007bff";
+const SECONDARY_COLOR = "#6c757d";
+const SUCCESS_COLOR = "#28a745";
+const DANGER_COLOR = "#dc3545";
+const WARNING_COLOR = "#ffc107";
+const INFO_COLOR = "#17a2b8";
+const LIGHT_COLOR = "#f8f9fa";
+const DARK_COLOR = "#343a40";
+const WHITE_COLOR = "#fff";
+const BLACK_COLOR = "#000";
+const GRAY_COLOR = "#6c757d";
+const LIGHT_GRAY_COLOR = "#f8f9fa";
+const DARK_GRAY_COLOR = "#343a40";
+
+export {
+  BG_COLOR,
+  TEXT_COLOR,
+  PRIMARY_COLOR,
+  SECONDARY_COLOR,
+  SUCCESS_COLOR,
+  DANGER_COLOR,
+  WARNING_COLOR,
+  INFO_COLOR,
+  LIGHT_COLOR,
+  DARK_COLOR,
+  WHITE_COLOR,
+  BLACK_COLOR,
+  GRAY_COLOR,
+  LIGHT_GRAY_COLOR,
+  DARK_GRAY_COLOR,
+};
