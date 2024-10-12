@@ -1,5 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import Layout from "../layouts/Layout";
+import Register from "../pages/Register";
+import Login from "../pages/Login";
 
 const routes = createBrowserRouter([
   {
@@ -19,6 +21,22 @@ const routes = createBrowserRouter([
     element: (
       <Layout>
         <div>Search</div>
+      </Layout>
+    ),
+  },
+  {
+    path: "/register",
+    element: (
+      <Layout>
+        <Register />
+      </Layout>
+    ),
+  },
+  {
+    path: "/login",
+    element: (
+      <Layout>
+        <Login />
       </Layout>
     ),
   },

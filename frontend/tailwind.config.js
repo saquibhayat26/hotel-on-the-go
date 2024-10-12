@@ -44,7 +44,11 @@ export default {
     },
     // override default tailwind css
     container: {
-      padding: "10rem",
+      padding: {
+        md: "10rem",
+        sm: "2rem",
+        xs: "1rem",
+      },
     },
   },
   plugins: [],
