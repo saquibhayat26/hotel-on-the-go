@@ -1,6 +1,10 @@
+import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
+import * as authService from "../api/authService";
+import { useAppContext } from "../contexts/AppContext";
+import { Link, useNavigate } from "react-router-dom";
 
-type RegisterFormData = {
+export type RegisterFormData = {
   firstName: string;
   lastName: string;
   email: string;
@@ -9,19 +13,36 @@ type RegisterFormData = {
 };
 
 const Register = () => {
+  const navigate = useNavigate();
+  const { showToast } = useAppContext();
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-    reset,
   } = useForm<RegisterFormData>();
 
+  // Mutations
+  const mutation = useMutation({
+    mutationFn: (data: RegisterFormData) => authService.register(data),
+    onSuccess: (data) => {
+      showToast({
+        message: data.message,
+        type: "SUCCESS",
+      });
+      navigate("/");
+    },
+    onError: (error: Error) => {
+      showToast({
+        message: error.message,
+        type: "ERROR",
+      });
+    },
+  });
+
   const onSubmit = (data: RegisterFormData) => {
-    console.log("🚀 ~ file: Register.tsx:15 ~ onSubmit ~ data:", data);
-    console.log("Register");
-    // clear form
-    reset();
+    mutation.mutate(data);
   };
 
   return (
@@ -109,7 +130,16 @@ const Register = () => {
       </label>
 
       {/* submit button */}
-      <span>
+      <span className="flex justify-between">
+        <p className="text-sm flex items-center gap-1">
+          <span>Already Registered?</span>
+          <Link
+            to={"/login"}
+            className="text-sm hover:text-textColor-inverted cursor-pointer underline justify-center"
+          >
+            Login
+          </Link>
+        </p>
         <button
           type="submit"
           className="bg-backgroundColor-normal text-white py-2 px-4 rounded text-xl font-bold hover:bg-backgroundColor-darkBlue"

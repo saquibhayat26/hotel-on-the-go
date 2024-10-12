@@ -51,7 +51,9 @@ router.post(
         maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
       });
       // send the response with token to the client
-      return res.status(200).json({ userId: user._id });
+      return res
+        .status(200)
+        .json({ userId: user._id, message: "Login successful" });
     } catch (error) {
       console.log("🚀 ~ file: auth.ts:56 ~ error:", error);
       res.status(500).json({ message: "Something went wrong" });

@@ -11,8 +11,8 @@ const Header = () => {
         </span>
         <span className="flex space-x-2">
           <Link
-            to={"/sign-in"}
-            className="text-textColor-inverted px-3 flex items-center font-bold bg-backgroundColor-white hover:bg-backgroundColor-lightGray"
+            to={"/login"}
+            className="text-textColor-inverted px-3 rounded flex items-center font-bold bg-backgroundColor-white hover:bg-backgroundColor-lightGray"
           >
             Sign-In
           </Link>
