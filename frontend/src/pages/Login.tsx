@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import * as authService from "../api/authService";
@@ -12,6 +12,7 @@ export type LoginFormData = {
 const Login = () => {
   const navigate = useNavigate();
   const { showToast } = useAppContext();
+  const queryClient = useQueryClient();
 
   const {
     register,
@@ -22,11 +23,13 @@ const Login = () => {
   //mutation
   const mutation = useMutation({
     mutationFn: (data: LoginFormData) => authService.login(data),
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
+      //invalidate the token
       showToast({
         message: data.message,
         type: "SUCCESS",
       });
+      await queryClient.invalidateQueries({ queryKey: ["validateToken"] });
       navigate("/");
     },
     onError: (error: Error) => {
