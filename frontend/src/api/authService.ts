@@ -74,6 +74,27 @@ export const validateToken = async () => {
   }
 };
 
+export const logout = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/auth/logout`, {
+      method: "POST",
+      credentials: "include",
+    });
+    if (response.status === 200) {
+      const responseBody = await response.json();
+      return responseBody;
+    } else {
+      await handleErrorMessage(response);
+    }
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw new Error(error.message || "Something went wrong");
+    } else {
+      throw new Error("Something went wrong");
+    }
+  }
+};
+
 const handleErrorMessage = async (errorResponse: Response) => {
   const errorBody = await errorResponse.json();
   const erroMessage = errorBody.message || "Something went wrong";
