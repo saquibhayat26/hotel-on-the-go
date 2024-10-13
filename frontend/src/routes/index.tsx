@@ -41,6 +41,22 @@ const routes = createBrowserRouter([
     ),
   },
   {
+    path: "/my-bookings",
+    element: (
+      <Layout>
+        <div>My Bookings</div>
+      </Layout>
+    ),
+  },
+  {
+    path: "/my-hotels",
+    element: (
+      <Layout>
+        <div>My Hotels</div>
+      </Layout>
+    ),
+  },
+  {
     path: "*",
     element: <Navigate to={"/"} />,
   },

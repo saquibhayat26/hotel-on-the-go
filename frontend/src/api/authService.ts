@@ -32,10 +32,32 @@ export const login = async (formData: LoginFormData) => {
   try {
     const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
+    });
+    if (response.status === 200) {
+      const responseBody = await response.json();
+      return responseBody;
+    } else {
+      await handleErrorMessage(response);
+    }
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw new Error(error.message || "Something went wrong");
+    } else {
+      throw new Error("Something went wrong");
+    }
+  }
+};
+
+export const validateToken = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/auth/validate-token`, {
+      method: "GET",
+      credentials: "include",
     });
     if (response.status === 200) {
       const responseBody = await response.json();
