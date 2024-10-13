@@ -45,6 +45,7 @@
 /backend/.DS_Store
 /backend/.env.development.local
 /backend/.env
+/backend/.env.e2e
 /backend/.env.local
 /backend/.env.test.local
 /backend/.env.production.local
