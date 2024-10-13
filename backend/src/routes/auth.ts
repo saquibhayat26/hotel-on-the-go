@@ -51,7 +51,7 @@ router.post(
         { expiresIn: "1d" }
       );
       // create a cookie
-      res.cookie("token", token, {
+      res.cookie("auth_token", token, {
         httpOnly: true, // only accessible by the server
         secure: process.env.NODE_ENV === "production", // set to true in production
         maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
