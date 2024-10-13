@@ -3,10 +3,16 @@ import UserModel from "../models/user.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { check, validationResult } from "express-validator";
+import verifyToken from "../middleware/auth.js";
 
 const router = express.Router();
 
-// /api/users/login
+// verify the token
+router.get("/validate-token", verifyToken, (req: Request, res: Response) => {
+  res.status(200).send({ userId: req.userId });
+});
+
+// /api/auth/login
 router.post(
   "/login",
   [

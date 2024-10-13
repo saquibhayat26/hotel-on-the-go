@@ -47,19 +47,19 @@ router.post(
       );
 
       // create a cookie
-      res.cookie("token", token, {
+      res.cookie("auth_token", token, {
         httpOnly: true, // only accessible by the server
         secure: process.env.NODE_ENV === "production", // only send the cookie over https
         maxAge: 1000 * 60 * 60 * 24, // 1 day in milliseconds
       });
 
       // send the response with token to the client
-      return res.status(200).json({
+      return res.status(200).send({
         message: "User created successfully",
       });
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: "Something went wrong" });
+      res.status(500).send({ message: "Something went wrong" });
     }
   }
 );
