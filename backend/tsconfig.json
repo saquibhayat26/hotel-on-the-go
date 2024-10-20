@@ -5,7 +5,7 @@
     "lib": ["dom", "es6", "esnext", "esnext.asynciterable"],
     "skipLibCheck": true,
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "./dist", // location where our backend code get built
     "moduleResolution": "nodenext",
     "removeComments": true,
     "noImplicitAny": true,

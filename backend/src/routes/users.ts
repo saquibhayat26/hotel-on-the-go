@@ -59,7 +59,7 @@ router.post(
       });
     } catch (error) {
       console.log(error);
-      res.status(500).send({ message: "Something went wrong" });
+      return res.status(500).send({ message: "Something went wrong" });
     }
   }
 );

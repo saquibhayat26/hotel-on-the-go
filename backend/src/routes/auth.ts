@@ -69,8 +69,7 @@ router.post(
         .status(200)
         .json({ userId: user._id, message: "Login successful" });
     } catch (error) {
-      console.log("🚀 ~ file: auth.ts:56 ~ error:", error);
-      res.status(500).json({ message: "Something went wrong" });
+      return res.status(500).json({ message: "Something went wrong" });
     }
   }
 );
