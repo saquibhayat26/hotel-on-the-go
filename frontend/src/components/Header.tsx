@@ -4,7 +4,6 @@ import SignOutButton from "./SignOutButton";
 
 const Header = () => {
   const { isLoggedIn } = useAppContext();
-  console.log("🚀 ~ file: Header.tsx:6 ~ Header ~ isLoggedIn:", isLoggedIn);
   return (
     <div className="bg-backgroundColor-normal py-6 flex justify-center">
       <div className="container flex justify-between">

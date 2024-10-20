@@ -14,7 +14,11 @@ const routes = createBrowserRouter([
   },
   {
     path: "sign-in",
-    element: <div>Sign-in</div>,
+    element: (
+      <Layout>
+        <Login />
+      </Layout>
+    ),
   },
   {
     path: "/search",
